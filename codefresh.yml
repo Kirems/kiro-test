@@ -12,7 +12,7 @@ steps:
   main_clone:
     title: "Cloning repository"
     type: "git-clone"
-    repo: "Kirems/kiro-test"
+    repo: "codefresh-contrib/unlimited-test-environments-source-code"
     revision: "${{CF_REVISION}}"
     stage: "prepare"
 
@@ -69,14 +69,14 @@ steps:
   clone:
     title: "Cloning repository"
     type: "git-clone"
-    repo: "Kirems/kiro-test"
+    repo: "codefresh-contrib/unlimited-test-environments-manifests"
     revision: main
     stage: "deploy"      
   deploy:
     title: Deploying Helm Chart
     type: helm
     stage: deploy
-    working_directory: .kiro-test
+    working_directory: ./unlimited-test-environments-manifests
     arguments:
       action: install
       chart_name: simple-java-app
